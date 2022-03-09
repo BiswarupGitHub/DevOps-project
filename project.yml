@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  name: Installing packages on master
+  tasks:
+  - name: install java
+    script: java.sh
+  - name: install jenkins
+    script: jenkins.sh
+  - name: install docker
+    script: docker.sh
+- hosts: worker
+  become: yes
+  name: Installing packages on node1 and node2
+  tasks:
+  - name: install java
+    script: java.sh
+  - name: install docker
+    script: docker.sh
